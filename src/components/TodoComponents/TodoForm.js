@@ -1,13 +1,20 @@
 import React from 'react';
+import { tsPropertySignature } from '@babel/types';
 
-const TodoForm = () => {
+const TodoForm = (props) => {
+
     return (
         <form>
             <label htmlFor="add-item">
                 Add Item:
-                <input type="text" id="add-item" />
+                <input 
+                    type="text" 
+                    id="add-item" 
+                    onChange={props.handleInputChange} 
+                />
             </label>
             <button>Add Item</button>
+            <button>Clear Completed</button>
         </form>
     )
 }

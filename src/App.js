@@ -12,19 +12,29 @@ class App extends React.Component {
     const data = [
       {
         task: 'Organize Garage',
-        id: 1528817077286,
+        id: 123,
         completed: false
       },
       {
         task: 'Bake Cookies',
-        id: 1528817084358,
+        id: 12,
         completed: false
       }
     ]
 
     this.state = {
-      todos: data
+      todos: data,
+      userValue: ''
     }
+  }
+
+  // Get user input and store it.
+  handleInputChange = (e) => {
+    e.preventDefault();
+    // console.log(e.target.value);
+    this.setState({
+      userValue: e.target.value
+    })
   }
 
 
@@ -33,7 +43,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoForm handleInputChange={this.handleInputChange} />
       </div>
     );
   }
