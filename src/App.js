@@ -77,6 +77,17 @@ class App extends React.Component {
     })
   }
 
+  // Clear completed items
+  clearCompleted = () => {
+    console.log('clear clicked');
+    this.setState({
+      todos: this.state.todos.filter(item => {
+        if(item.completed === false) {
+          return item;
+        }
+      })
+    })
+  }
   render() {
     return (
       <div>
@@ -89,6 +100,7 @@ class App extends React.Component {
           handleInputChange={this.handleInputChange}
           handleSubmit={this.handleSubmit}
           userValue={this.state.userValue}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
