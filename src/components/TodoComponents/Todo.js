@@ -7,10 +7,12 @@ class Todo extends React.Component {
 
     render() {
         return (
-            // <h2>from todo.js</h2>
-            <>
-            <li>{this.props.todoItem.task}</li>
-            </>
+            <div 
+                className="todo-item" 
+                onClick={(e) => this.props.toggleComplete(this.props.todoItem.id)}
+            >
+                <p>{this.props.todoItem.task}</p>
+            </div>
         )
     }
 }

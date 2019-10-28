@@ -10,7 +10,8 @@ const TodoForm = (props) => {
                 <input 
                     type="text" 
                     id="add-item" 
-                    onChange={props.handleInputChange} 
+                    onChange={props.handleInputChange}
+                    value={props.userValue}
                 />
             </label>
             <button>Add Item</button>
