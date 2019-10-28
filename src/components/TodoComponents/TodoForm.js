@@ -4,7 +4,7 @@ import { tsPropertySignature } from '@babel/types';
 const TodoForm = (props) => {
 
     return (
-        <form>
+        <form onSubmit={props.handleSubmit}>
             <label htmlFor="add-item">
                 Add Item:
                 <input 

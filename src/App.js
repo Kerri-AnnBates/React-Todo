@@ -30,20 +30,41 @@ class App extends React.Component {
 
   // Get user input and store it.
   handleInputChange = (e) => {
-    e.preventDefault();
     // console.log(e.target.value);
     this.setState({
       userValue: e.target.value
     })
   }
 
+  // Submit a new todo item.
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log('you submitted something');
+    this.addItem(this.state.userValue);
+    this.setState({
+      userValue: ''
+    });
+  }
+
+  // Add an item
+  addItem = (todoTitle) => {
+    const newTodo = {
+      task: todoTitle,
+      id: Date.now(),
+      completed: false
+    }
+
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    })
+  }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} />
-        <TodoForm handleInputChange={this.handleInputChange} />
+        <TodoForm handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />
       </div>
     );
   }
