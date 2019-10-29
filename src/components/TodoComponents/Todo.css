@@ -1,7 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    min-height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.todo-container {
+    background: #fefefe;
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+}
+
 .completed {
     text-decoration: line-through;
 }
 
+.todo-item {
+    background: #E8DDE5;
+    margin: 10px 0;
+    padding: 10px;
+}
+
 .todo-item:hover {
     cursor: pointer;
+}
+
+button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background: #39739D;
+    color: #fff;
+    margin: 0 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 3px solid #39739D;
+    border-radius: 5px;
+    margin: 0 10px;
 }
