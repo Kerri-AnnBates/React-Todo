@@ -18,6 +18,7 @@ class TodoList extends React.Component {
                         toggleComplete={this.props.toggleComplete} 
                     />
                 ))}
+                <button onClick={this.props.clearCompleted}>Clear Completed</button>
             </div>
         );
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './components/TodoComponents/Todo.css'
+import TodoSearchForm from './components/TodoComponents/TodoSearchForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -25,7 +26,8 @@ class App extends React.Component {
 
     this.state = {
       todos: data,
-      userValue: ''
+      userValue: '',
+      searchValue: ''
     }
   }
 
@@ -37,6 +39,17 @@ class App extends React.Component {
     })
   }
 
+  // Get search input
+  handleSearchInputChange = (e) => {
+    this.setState({
+      searchValue: e.target.value,
+    });
+    this.handleSearch(this.state.searchValue);
+  }
+
+  handleSearch = (searchVal) => {
+  }
+  
   // Submit a new todo item.
   handleSubmit = (e) => {
     e.preventDefault();
@@ -79,14 +92,12 @@ class App extends React.Component {
 
   // Clear completed items
   clearCompleted = () => {
-    console.log('clear clicked');
     this.setState({
       todos: this.state.todos.filter(item => {
-        if(item.completed === false) {
-          return item;
-        }
+        return item.completed === false;
       })
     })
+    console.log(this.state.todos);
   }
   render() {
     return (
@@ -96,13 +107,19 @@ class App extends React.Component {
           <TodoList
             todos={this.state.todos}
             toggleComplete={this.toggleComplete}
-          />
-          <TodoForm
-            handleInputChange={this.handleInputChange}
-            handleSubmit={this.handleSubmit}
-            userValue={this.state.userValue}
             clearCompleted={this.clearCompleted}
           />
+          <div className="forms">
+            <TodoForm
+              handleInputChange={this.handleInputChange}
+              handleSubmit={this.handleSubmit}
+              userValue={this.state.userValue}
+            />
+            {/* <TodoSearchForm 
+              handleSearchInputChange={this.handleSearchInputChange} 
+              searchValue={this.state.searchValue}
+            /> */}
+          </div>
         </div>
       </div>
     );

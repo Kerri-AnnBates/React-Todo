@@ -10,13 +10,13 @@ const TodoForm = (props) => {
                 Add Item:
                 <input 
                     type="text" 
-                    id="add-item" 
+                    id="add-item"
+                    placeholder="Add Item"
                     onChange={props.handleInputChange}
                     value={props.userValue}
                 />
             </label>
             <button>Add Item</button>
-            <button onClick={props.clearCompleted}>Clear Completed</button>
         </form>
     )
 }
